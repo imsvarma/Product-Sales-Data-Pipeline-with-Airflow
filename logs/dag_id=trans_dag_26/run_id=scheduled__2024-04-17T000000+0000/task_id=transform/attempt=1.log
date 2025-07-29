@@ -1,0 +1,49 @@
+[2025-07-21T17:48:33.238+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.transform scheduled__2024-04-17T00:00:00+00:00 [queued]>
+[2025-07-21T17:48:33.281+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.transform scheduled__2024-04-17T00:00:00+00:00 [queued]>
+[2025-07-21T17:48:33.283+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T17:48:33.285+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 2
+[2025-07-21T17:48:33.287+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T17:48:33.361+0000] {taskinstance.py:1383} INFO - Executing <Task(_PythonDecoratedOperator): transform> on 2024-04-17 00:00:00+00:00
+[2025-07-21T17:48:33.388+0000] {standard_task_runner.py:55} INFO - Started process 75192 to run task
+[2025-07-21T17:48:33.405+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'trans_dag_26', 'transform', 'scheduled__2024-04-17T00:00:00+00:00', '--job-id', '9104', '--raw', '--subdir', 'DAGS_FOLDER/trans_dag.py', '--cfg-path', '/tmp/tmpspkn0245']
+[2025-07-21T17:48:33.412+0000] {standard_task_runner.py:83} INFO - Job 9104: Subtask transform
+[2025-07-21T17:48:33.743+0000] {task_command.py:376} INFO - Running <TaskInstance: trans_dag_26.transform scheduled__2024-04-17T00:00:00+00:00 [running]> on host 77e451e90f2e
+[2025-07-21T17:48:34.125+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=trans_dag_26
+AIRFLOW_CTX_TASK_ID=transform
+AIRFLOW_CTX_EXECUTION_DATE=2024-04-17T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2024-04-17T00:00:00+00:00
+[2025-07-21T17:48:34.378+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/indexes/base.py", line 3361, in get_loc
+    return self._engine.get_loc(casted_key)
+  File "pandas/_libs/index.pyx", line 76, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/index.pyx", line 108, in pandas._libs.index.IndexEngine.get_loc
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5198, in pandas._libs.hashtable.PyObjectHashTable.get_item
+  File "pandas/_libs/hashtable_class_helper.pxi", line 5206, in pandas._libs.hashtable.PyObjectHashTable.get_item
+KeyError: 'DATE'
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/decorators/base.py", line 188, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/trans_dag.py", line 43, in transform
+    df['DATE']=pd.to_datetime(df['DATE'],origin = "1899-12-30", unit='D')
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/frame.py", line 3458, in __getitem__
+    indexer = self.columns.get_loc(key)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/core/indexes/base.py", line 3363, in get_loc
+    raise KeyError(key) from err
+KeyError: 'DATE'
+[2025-07-21T17:48:34.448+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=trans_dag_26, task_id=transform, execution_date=20240417T000000, start_date=20250721T174833, end_date=20250721T174834
+[2025-07-21T17:48:34.493+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 9104 for task transform ('DATE'; 75192)
+[2025-07-21T17:48:34.568+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2025-07-21T17:48:34.669+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

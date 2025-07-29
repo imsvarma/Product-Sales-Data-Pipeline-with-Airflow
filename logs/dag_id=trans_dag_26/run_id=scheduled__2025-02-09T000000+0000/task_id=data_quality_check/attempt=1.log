@@ -1,0 +1,50 @@
+[2025-07-21T18:32:38.387+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.data_quality_check scheduled__2025-02-09T00:00:00+00:00 [queued]>
+[2025-07-21T18:32:38.417+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.data_quality_check scheduled__2025-02-09T00:00:00+00:00 [queued]>
+[2025-07-21T18:32:38.419+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T18:32:38.420+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 2
+[2025-07-21T18:32:38.421+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T18:32:38.451+0000] {taskinstance.py:1383} INFO - Executing <Task(_PythonDecoratedOperator): data_quality_check> on 2025-02-09 00:00:00+00:00
+[2025-07-21T18:32:38.468+0000] {standard_task_runner.py:55} INFO - Started process 84943 to run task
+[2025-07-21T18:32:38.478+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'trans_dag_26', 'data_quality_check', 'scheduled__2025-02-09T00:00:00+00:00', '--job-id', '10876', '--raw', '--subdir', 'DAGS_FOLDER/trans_dag.py', '--cfg-path', '/tmp/tmpfiw98qn8']
+[2025-07-21T18:32:38.483+0000] {standard_task_runner.py:83} INFO - Job 10876: Subtask data_quality_check
+[2025-07-21T18:32:38.709+0000] {task_command.py:376} INFO - Running <TaskInstance: trans_dag_26.data_quality_check scheduled__2025-02-09T00:00:00+00:00 [running]> on host 77e451e90f2e
+[2025-07-21T18:32:38.943+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=trans_dag_26
+AIRFLOW_CTX_TASK_ID=data_quality_check
+AIRFLOW_CTX_EXECUTION_DATE=2025-02-09T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2025-02-09T00:00:00+00:00
+[2025-07-21T18:32:38.964+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/decorators/base.py", line 188, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/trans_dag.py", line 59, in data_quality_check
+    df = pd.read_csv(file_path_s3)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 488, in _read
+    return parser.read(nrows)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 1047, in read
+    index, columns, col_dict = self._engine.read(nrows)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 224, in read
+    chunks = self._reader.read_low_memory(nrows)
+  File "pandas/_libs/parsers.pyx", line 801, in pandas._libs.parsers.TextReader.read_low_memory
+  File "pandas/_libs/parsers.pyx", line 857, in pandas._libs.parsers.TextReader._read_rows
+  File "pandas/_libs/parsers.pyx", line 843, in pandas._libs.parsers.TextReader._tokenize_rows
+  File "pandas/_libs/parsers.pyx", line 1925, in pandas._libs.parsers.raise_parser_error
+pandas.errors.ParserError: Error tokenizing data. C error: Expected 8 fields in line 12399, saw 15
+
+[2025-07-21T18:32:38.996+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=trans_dag_26, task_id=data_quality_check, execution_date=20250209T000000, start_date=20250721T183238, end_date=20250721T183238
+[2025-07-21T18:32:39.029+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 10876 for task data_quality_check (Error tokenizing data. C error: Expected 8 fields in line 12399, saw 15
+; 84943)
+[2025-07-21T18:32:39.091+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2025-07-21T18:32:39.400+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

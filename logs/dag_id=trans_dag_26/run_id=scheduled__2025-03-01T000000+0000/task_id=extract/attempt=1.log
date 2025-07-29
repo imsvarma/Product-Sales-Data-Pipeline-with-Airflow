@@ -1,0 +1,25 @@
+[2025-07-21T18:36:15.238+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.extract scheduled__2025-03-01T00:00:00+00:00 [queued]>
+[2025-07-21T18:36:15.250+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.extract scheduled__2025-03-01T00:00:00+00:00 [queued]>
+[2025-07-21T18:36:15.251+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T18:36:15.252+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 2
+[2025-07-21T18:36:15.253+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T18:36:15.268+0000] {taskinstance.py:1383} INFO - Executing <Task(_PythonDecoratedOperator): extract> on 2025-03-01 00:00:00+00:00
+[2025-07-21T18:36:15.275+0000] {standard_task_runner.py:55} INFO - Started process 85737 to run task
+[2025-07-21T18:36:15.278+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'trans_dag_26', 'extract', 'scheduled__2025-03-01T00:00:00+00:00', '--job-id', '11026', '--raw', '--subdir', 'DAGS_FOLDER/trans_dag.py', '--cfg-path', '/tmp/tmpc54eh6yv']
+[2025-07-21T18:36:15.280+0000] {standard_task_runner.py:83} INFO - Job 11026: Subtask extract
+[2025-07-21T18:36:15.370+0000] {task_command.py:376} INFO - Running <TaskInstance: trans_dag_26.extract scheduled__2025-03-01T00:00:00+00:00 [running]> on host 77e451e90f2e
+[2025-07-21T18:36:15.451+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=trans_dag_26
+AIRFLOW_CTX_TASK_ID=extract
+AIRFLOW_CTX_EXECUTION_DATE=2025-03-01T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2025-03-01T00:00:00+00:00
+[2025-07-21T18:36:15.464+0000] {base.py:71} INFO - Using connection ID 'aws-connect' for task execution.
+[2025-07-21T18:36:15.465+0000] {connection_wrapper.py:303} INFO - AWS Connection (conn_id='aws-connect', conn_type='aws') credentials retrieved from login and password.
+[2025-07-21T18:36:18.921+0000] {python.py:177} INFO - Done. Returned value was: /tmp/mymani.csv
+[2025-07-21T18:36:18.943+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=trans_dag_26, task_id=extract, execution_date=20250301T000000, start_date=20250721T183615, end_date=20250721T183618
+[2025-07-21T18:36:18.988+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2025-07-21T18:36:19.030+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

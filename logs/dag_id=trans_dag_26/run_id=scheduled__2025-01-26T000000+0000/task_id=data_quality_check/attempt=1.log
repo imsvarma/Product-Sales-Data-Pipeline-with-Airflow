@@ -1,0 +1,23 @@
+[2025-07-21T18:31:53.144+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.data_quality_check scheduled__2025-01-26T00:00:00+00:00 [queued]>
+[2025-07-21T18:31:53.154+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.data_quality_check scheduled__2025-01-26T00:00:00+00:00 [queued]>
+[2025-07-21T18:31:53.155+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T18:31:53.156+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 2
+[2025-07-21T18:31:53.156+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T18:31:53.170+0000] {taskinstance.py:1383} INFO - Executing <Task(_PythonDecoratedOperator): data_quality_check> on 2025-01-26 00:00:00+00:00
+[2025-07-21T18:31:53.176+0000] {standard_task_runner.py:55} INFO - Started process 84683 to run task
+[2025-07-21T18:31:53.180+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'trans_dag_26', 'data_quality_check', 'scheduled__2025-01-26T00:00:00+00:00', '--job-id', '10828', '--raw', '--subdir', 'DAGS_FOLDER/trans_dag.py', '--cfg-path', '/tmp/tmpglptehbw']
+[2025-07-21T18:31:53.183+0000] {standard_task_runner.py:83} INFO - Job 10828: Subtask data_quality_check
+[2025-07-21T18:31:53.270+0000] {task_command.py:376} INFO - Running <TaskInstance: trans_dag_26.data_quality_check scheduled__2025-01-26T00:00:00+00:00 [running]> on host 77e451e90f2e
+[2025-07-21T18:31:53.367+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=trans_dag_26
+AIRFLOW_CTX_TASK_ID=data_quality_check
+AIRFLOW_CTX_EXECUTION_DATE=2025-01-26T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2025-01-26T00:00:00+00:00
+[2025-07-21T18:31:53.653+0000] {python.py:177} INFO - Done. Returned value was: {'is_valid': True, 'file_path': '/tmp/transformed.csv'}
+[2025-07-21T18:31:53.684+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=trans_dag_26, task_id=data_quality_check, execution_date=20250126T000000, start_date=20250721T183153, end_date=20250721T183153
+[2025-07-21T18:31:53.716+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2025-07-21T18:31:53.758+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

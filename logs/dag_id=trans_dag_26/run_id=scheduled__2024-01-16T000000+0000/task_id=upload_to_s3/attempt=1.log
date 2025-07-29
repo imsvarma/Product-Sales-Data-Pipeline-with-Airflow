@@ -1,0 +1,127 @@
+[2025-07-21T17:33:57.153+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.upload_to_s3 scheduled__2024-01-16T00:00:00+00:00 [queued]>
+[2025-07-21T17:33:57.171+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.upload_to_s3 scheduled__2024-01-16T00:00:00+00:00 [queued]>
+[2025-07-21T17:33:57.172+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T17:33:57.174+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 2
+[2025-07-21T17:33:57.174+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T17:33:57.199+0000] {taskinstance.py:1383} INFO - Executing <Task(_PythonDecoratedOperator): upload_to_s3> on 2024-01-16 00:00:00+00:00
+[2025-07-21T17:33:57.210+0000] {standard_task_runner.py:55} INFO - Started process 71927 to run task
+[2025-07-21T17:33:57.222+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'trans_dag_26', 'upload_to_s3', 'scheduled__2024-01-16T00:00:00+00:00', '--job-id', '8526', '--raw', '--subdir', 'DAGS_FOLDER/trans_dag.py', '--cfg-path', '/tmp/tmp7d2_0z7i']
+[2025-07-21T17:33:57.225+0000] {standard_task_runner.py:83} INFO - Job 8526: Subtask upload_to_s3
+[2025-07-21T17:33:57.380+0000] {task_command.py:376} INFO - Running <TaskInstance: trans_dag_26.upload_to_s3 scheduled__2024-01-16T00:00:00+00:00 [running]> on host 77e451e90f2e
+[2025-07-21T17:33:57.542+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=trans_dag_26
+AIRFLOW_CTX_TASK_ID=upload_to_s3
+AIRFLOW_CTX_EXECUTION_DATE=2024-01-16T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2024-01-16T00:00:00+00:00
+[2025-07-21T17:33:57.566+0000] {base.py:71} INFO - Using connection ID 'aws-connect' for task execution.
+[2025-07-21T17:33:57.567+0000] {connection_wrapper.py:303} INFO - AWS Connection (conn_id='aws-connect', conn_type='aws') credentials retrieved from login and password.
+[2025-07-21T17:35:03.978+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/boto3/s3/transfer.py", line 288, in upload_file
+    future.result()
+  File "/home/airflow/.local/lib/python3.7/site-packages/s3transfer/futures.py", line 103, in result
+    return self._coordinator.result()
+  File "/home/airflow/.local/lib/python3.7/site-packages/s3transfer/futures.py", line 266, in result
+    raise self._exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/httpsession.py", line 457, in send
+    chunked=self._chunked(request.headers),
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.7/http/client.py", line 1281, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/awsrequest.py", line 95, in _send_request
+    method, url, body, headers, *args, **kwargs
+  File "/usr/local/lib/python3.7/http/client.py", line 1327, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1276, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/awsrequest.py", line 130, in _send_output
+    self._handle_expect_response(message_body)
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/awsrequest.py", line 176, in _handle_expect_response
+    self._send_message_body(message_body)
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/awsrequest.py", line 209, in _send_message_body
+    self.send(message_body)
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/awsrequest.py", line 218, in send
+    return super().send(str)
+  File "/usr/local/lib/python3.7/http/client.py", line 989, in send
+    datablock = data.read(self.blocksize)
+  File "/home/airflow/.local/lib/python3.7/site-packages/s3transfer/utils.py", line 511, in read
+    data = self._fileobj.read(amount_to_read)
+  File "/home/airflow/.local/lib/python3.7/site-packages/s3transfer/upload.py", line 90, in read
+    raise self._transfer_coordinator.exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/httpsession.py", line 457, in send
+    chunked=self._chunked(request.headers),
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 710, in urlopen
+    chunked=chunked,
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connectionpool.py", line 398, in _make_request
+    conn.request(method, url, **httplib_request_kw)
+  File "/home/airflow/.local/lib/python3.7/site-packages/urllib3/connection.py", line 239, in request
+    super(HTTPConnection, self).request(method, url, body=body, headers=headers)
+  File "/usr/local/lib/python3.7/http/client.py", line 1281, in request
+    self._send_request(method, url, body, headers, encode_chunked)
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/awsrequest.py", line 95, in _send_request
+    method, url, body, headers, *args, **kwargs
+  File "/usr/local/lib/python3.7/http/client.py", line 1327, in _send_request
+    self.endheaders(body, encode_chunked=encode_chunked)
+  File "/usr/local/lib/python3.7/http/client.py", line 1276, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/awsrequest.py", line 130, in _send_output
+    self._handle_expect_response(message_body)
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/awsrequest.py", line 176, in _handle_expect_response
+    self._send_message_body(message_body)
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/awsrequest.py", line 209, in _send_message_body
+    self.send(message_body)
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/awsrequest.py", line 218, in send
+    return super().send(str)
+  File "/usr/local/lib/python3.7/http/client.py", line 989, in send
+    datablock = data.read(self.blocksize)
+  File "/home/airflow/.local/lib/python3.7/site-packages/s3transfer/utils.py", line 511, in read
+    data = self._fileobj.read(amount_to_read)
+  File "/home/airflow/.local/lib/python3.7/site-packages/s3transfer/upload.py", line 90, in read
+    raise self._transfer_coordinator.exception
+  File "/home/airflow/.local/lib/python3.7/site-packages/s3transfer/tasks.py", line 139, in __call__
+    return self._execute_main(kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/s3transfer/tasks.py", line 162, in _execute_main
+    return_value = self._main(**kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/s3transfer/upload.py", line 793, in _main
+    **extra_args,
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/client.py", line 508, in _api_call
+    return self._make_api_call(operation_name, kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/botocore/client.py", line 915, in _make_api_call
+    raise error_class(parsed_response, operation_name)
+botocore.exceptions.ClientError: An error occurred (BadDigest) when calling the UploadPart operation (reached max retries: 4): The Content-MD5 you specified did not match what we received.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/decorators/base.py", line 188, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/trans_dag.py", line 89, in upload_to_s3
+    s3_hook.load_file(filename=file_path_s3, key=key, bucket_name=bucket_name, replace=True)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 64, in wrapper
+    return func(*bound_args.args, **bound_args.kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 92, in wrapper
+    return func(*bound_args.args, **bound_args.kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/providers/amazon/aws/hooks/s3.py", line 649, in load_file
+    client.upload_file(filename, bucket_name, key, ExtraArgs=extra_args, Config=self.transfer_config)
+  File "/home/airflow/.local/lib/python3.7/site-packages/boto3/s3/inject.py", line 148, in upload_file
+    callback=Callback,
+  File "/home/airflow/.local/lib/python3.7/site-packages/boto3/s3/transfer.py", line 296, in upload_file
+    filename, '/'.join([bucket, key]), e
+boto3.exceptions.S3UploadFailedError: Failed to upload /tmp/transformed.csv to imani-***-data/transformed/transformed.csv: An error occurred (BadDigest) when calling the UploadPart operation (reached max retries: 4): The Content-MD5 you specified did not match what we received.
+[2025-07-21T17:35:04.005+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=trans_dag_26, task_id=upload_to_s3, execution_date=20240116T000000, start_date=20250721T173357, end_date=20250721T173504
+[2025-07-21T17:35:04.103+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 8526 for task upload_to_s3 (Failed to upload /tmp/transformed.csv to imani-***-data/transformed/transformed.csv: An error occurred (BadDigest) when calling the UploadPart operation (reached max retries: 4): The Content-MD5 you specified did not match what we received.; 71927)
+[2025-07-21T17:35:04.127+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2025-07-21T17:35:04.148+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

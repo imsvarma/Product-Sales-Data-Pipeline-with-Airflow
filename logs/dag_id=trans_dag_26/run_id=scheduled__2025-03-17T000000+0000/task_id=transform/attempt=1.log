@@ -1,0 +1,47 @@
+[2025-07-21T22:42:38.459+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.transform scheduled__2025-03-17T00:00:00+00:00 [queued]>
+[2025-07-21T22:42:38.481+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.transform scheduled__2025-03-17T00:00:00+00:00 [queued]>
+[2025-07-21T22:42:38.487+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T22:42:38.506+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 2
+[2025-07-21T22:42:38.519+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T22:42:38.560+0000] {taskinstance.py:1383} INFO - Executing <Task(_PythonDecoratedOperator): transform> on 2025-03-17 00:00:00+00:00
+[2025-07-21T22:42:38.601+0000] {standard_task_runner.py:55} INFO - Started process 86454 to run task
+[2025-07-21T22:42:38.608+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'trans_dag_26', 'transform', 'scheduled__2025-03-17T00:00:00+00:00', '--job-id', '11135', '--raw', '--subdir', 'DAGS_FOLDER/trans_dag.py', '--cfg-path', '/tmp/tmp_oilf1nz']
+[2025-07-21T22:42:38.637+0000] {standard_task_runner.py:83} INFO - Job 11135: Subtask transform
+[2025-07-21T22:42:38.830+0000] {task_command.py:376} INFO - Running <TaskInstance: trans_dag_26.transform scheduled__2025-03-17T00:00:00+00:00 [running]> on host 77e451e90f2e
+[2025-07-21T22:42:38.974+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=trans_dag_26
+AIRFLOW_CTX_TASK_ID=transform
+AIRFLOW_CTX_EXECUTION_DATE=2025-03-17T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2025-03-17T00:00:00+00:00
+[2025-07-21T22:42:38.980+0000] {taskinstance.py:1851} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/decorators/base.py", line 188, in execute
+    return_value = super().execute(context)
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 175, in execute
+    return_value = self.execute_callable()
+  File "/home/airflow/.local/lib/python3.7/site-packages/airflow/operators/python.py", line 193, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+  File "/opt/airflow/dags/trans_dag.py", line 42, in transform
+    df=pd.read_csv(file_path)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/util/_decorators.py", line 311, in wrapper
+    return func(*args, **kwargs)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 586, in read_csv
+    return _read(filepath_or_buffer, kwds)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 482, in _read
+    parser = TextFileReader(filepath_or_buffer, **kwds)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 811, in __init__
+    self._engine = self._make_engine(self.engine)
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/readers.py", line 1040, in _make_engine
+    return mapping[engine](self.f, **self.options)  # type: ignore[call-arg]
+  File "/home/airflow/.local/lib/python3.7/site-packages/pandas/io/parsers/c_parser_wrapper.py", line 69, in __init__
+    self._reader = parsers.TextReader(self.handles.handle, **kwds)
+  File "pandas/_libs/parsers.pyx", line 549, in pandas._libs.parsers.TextReader.__cinit__
+pandas.errors.EmptyDataError: No columns to parse from file
+[2025-07-21T22:42:39.009+0000] {taskinstance.py:1406} INFO - Marking task as UP_FOR_RETRY. dag_id=trans_dag_26, task_id=transform, execution_date=20250317T000000, start_date=20250721T224238, end_date=20250721T224239
+[2025-07-21T22:42:39.028+0000] {standard_task_runner.py:105} ERROR - Failed to execute job 11135 for task transform (No columns to parse from file; 86454)
+[2025-07-21T22:42:39.077+0000] {local_task_job.py:164} INFO - Task exited with return code 1
+[2025-07-21T22:42:39.146+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check

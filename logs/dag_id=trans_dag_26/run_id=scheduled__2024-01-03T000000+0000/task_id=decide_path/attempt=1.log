@@ -1,0 +1,25 @@
+[2025-07-21T17:26:25.794+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.decide_path scheduled__2024-01-03T00:00:00+00:00 [queued]>
+[2025-07-21T17:26:25.820+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.decide_path scheduled__2024-01-03T00:00:00+00:00 [queued]>
+[2025-07-21T17:26:25.822+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T17:26:25.823+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 2
+[2025-07-21T17:26:25.824+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T17:26:25.864+0000] {taskinstance.py:1383} INFO - Executing <Task(_BranchPythonDecoratedOperator): decide_path> on 2024-01-03 00:00:00+00:00
+[2025-07-21T17:26:25.886+0000] {standard_task_runner.py:55} INFO - Started process 71163 to run task
+[2025-07-21T17:26:25.897+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'trans_dag_26', 'decide_path', 'scheduled__2024-01-03T00:00:00+00:00', '--job-id', '8426', '--raw', '--subdir', 'DAGS_FOLDER/trans_dag.py', '--cfg-path', '/tmp/tmpefcg2rp8']
+[2025-07-21T17:26:25.904+0000] {standard_task_runner.py:83} INFO - Job 8426: Subtask decide_path
+[2025-07-21T17:26:26.092+0000] {task_command.py:376} INFO - Running <TaskInstance: trans_dag_26.decide_path scheduled__2024-01-03T00:00:00+00:00 [running]> on host 77e451e90f2e
+[2025-07-21T17:26:26.289+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=trans_dag_26
+AIRFLOW_CTX_TASK_ID=decide_path
+AIRFLOW_CTX_EXECUTION_DATE=2024-01-03T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2024-01-03T00:00:00+00:00
+[2025-07-21T17:26:26.293+0000] {python.py:177} INFO - Done. Returned value was: file_location
+[2025-07-21T17:26:26.294+0000] {skipmixin.py:155} INFO - Following branch file_location
+[2025-07-21T17:26:26.296+0000] {skipmixin.py:190} INFO - Skipping tasks ['data_quality_check_failed']
+[2025-07-21T17:26:26.425+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=trans_dag_26, task_id=decide_path, execution_date=20240103T000000, start_date=20250721T172625, end_date=20250721T172626
+[2025-07-21T17:26:26.508+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2025-07-21T17:26:26.589+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

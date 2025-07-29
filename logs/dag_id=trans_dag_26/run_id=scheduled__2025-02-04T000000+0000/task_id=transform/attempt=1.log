@@ -1,0 +1,23 @@
+[2025-07-21T18:32:29.166+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.transform scheduled__2025-02-04T00:00:00+00:00 [queued]>
+[2025-07-21T18:32:29.201+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.transform scheduled__2025-02-04T00:00:00+00:00 [queued]>
+[2025-07-21T18:32:29.202+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T18:32:29.203+0000] {taskinstance.py:1363} INFO - Starting attempt 1 of 2
+[2025-07-21T18:32:29.204+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T18:32:29.252+0000] {taskinstance.py:1383} INFO - Executing <Task(_PythonDecoratedOperator): transform> on 2025-02-04 00:00:00+00:00
+[2025-07-21T18:32:29.277+0000] {standard_task_runner.py:55} INFO - Started process 84887 to run task
+[2025-07-21T18:32:29.294+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'trans_dag_26', 'transform', 'scheduled__2025-02-04T00:00:00+00:00', '--job-id', '10862', '--raw', '--subdir', 'DAGS_FOLDER/trans_dag.py', '--cfg-path', '/tmp/tmpb44vaf9_']
+[2025-07-21T18:32:29.302+0000] {standard_task_runner.py:83} INFO - Job 10862: Subtask transform
+[2025-07-21T18:32:29.566+0000] {task_command.py:376} INFO - Running <TaskInstance: trans_dag_26.transform scheduled__2025-02-04T00:00:00+00:00 [running]> on host 77e451e90f2e
+[2025-07-21T18:32:29.868+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=trans_dag_26
+AIRFLOW_CTX_TASK_ID=transform
+AIRFLOW_CTX_EXECUTION_DATE=2025-02-04T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=1
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2025-02-04T00:00:00+00:00
+[2025-07-21T18:32:36.511+0000] {python.py:177} INFO - Done. Returned value was: /tmp/transformed.csv
+[2025-07-21T18:32:36.587+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=trans_dag_26, task_id=transform, execution_date=20250204T000000, start_date=20250721T183229, end_date=20250721T183236
+[2025-07-21T18:32:36.680+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2025-07-21T18:32:36.766+0000] {local_task_job.py:273} INFO - 1 downstream tasks scheduled from follow-on schedule check

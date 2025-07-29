@@ -1,0 +1,25 @@
+[2025-07-21T22:38:33.881+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.upload_to_s3 scheduled__2025-02-10T00:00:00+00:00 [queued]>
+[2025-07-21T22:38:34.080+0000] {taskinstance.py:1165} INFO - Dependencies all met for <TaskInstance: trans_dag_26.upload_to_s3 scheduled__2025-02-10T00:00:00+00:00 [queued]>
+[2025-07-21T22:38:34.082+0000] {taskinstance.py:1362} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T22:38:34.092+0000] {taskinstance.py:1363} INFO - Starting attempt 2 of 2
+[2025-07-21T22:38:34.097+0000] {taskinstance.py:1364} INFO - 
+--------------------------------------------------------------------------------
+[2025-07-21T22:38:34.217+0000] {taskinstance.py:1383} INFO - Executing <Task(_PythonDecoratedOperator): upload_to_s3> on 2025-02-10 00:00:00+00:00
+[2025-07-21T22:38:34.294+0000] {standard_task_runner.py:55} INFO - Started process 85802 to run task
+[2025-07-21T22:38:34.315+0000] {standard_task_runner.py:82} INFO - Running: ['***', 'tasks', 'run', 'trans_dag_26', 'upload_to_s3', 'scheduled__2025-02-10T00:00:00+00:00', '--job-id', '11034', '--raw', '--subdir', 'DAGS_FOLDER/trans_dag.py', '--cfg-path', '/tmp/tmpzcrq9stw']
+[2025-07-21T22:38:34.332+0000] {standard_task_runner.py:83} INFO - Job 11034: Subtask upload_to_s3
+[2025-07-21T22:38:35.694+0000] {task_command.py:376} INFO - Running <TaskInstance: trans_dag_26.upload_to_s3 scheduled__2025-02-10T00:00:00+00:00 [running]> on host 77e451e90f2e
+[2025-07-21T22:38:36.636+0000] {taskinstance.py:1592} INFO - Exporting the following env vars:
+AIRFLOW_CTX_DAG_OWNER=***
+AIRFLOW_CTX_DAG_ID=trans_dag_26
+AIRFLOW_CTX_TASK_ID=upload_to_s3
+AIRFLOW_CTX_EXECUTION_DATE=2025-02-10T00:00:00+00:00
+AIRFLOW_CTX_TRY_NUMBER=2
+AIRFLOW_CTX_DAG_RUN_ID=scheduled__2025-02-10T00:00:00+00:00
+[2025-07-21T22:38:36.844+0000] {base.py:71} INFO - Using connection ID 'aws-connect' for task execution.
+[2025-07-21T22:38:36.852+0000] {connection_wrapper.py:303} INFO - AWS Connection (conn_id='aws-connect', conn_type='aws') credentials retrieved from login and password.
+[2025-07-21T22:39:17.577+0000] {python.py:177} INFO - Done. Returned value was: s3://imani-***-data/transformed/transformed.csv
+[2025-07-21T22:39:17.665+0000] {taskinstance.py:1406} INFO - Marking task as SUCCESS. dag_id=trans_dag_26, task_id=upload_to_s3, execution_date=20250210T000000, start_date=20250721T223833, end_date=20250721T223917
+[2025-07-21T22:39:17.777+0000] {local_task_job.py:164} INFO - Task exited with return code 0
+[2025-07-21T22:39:17.861+0000] {local_task_job.py:273} INFO - 0 downstream tasks scheduled from follow-on schedule check
