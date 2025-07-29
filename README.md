@@ -27,19 +27,9 @@ The pipeline processes raw data, stores both raw and transformed datasets in S3,
 
 ---
 
-## ⚡ Workflow Diagram
-```mermaid
-flowchart TD
-    A[Airflow DAG] --> B[Extract Data]
-    B --> C[Upload Raw File to S3]
-    C --> D[Transform Data in Airflow]
-    D --> E[Upload Transformed File to S3]
-    E --> F[Glue Crawler]
-    F --> G[Glue Database]
-    G --> H[Athena SQL Queries]
-    H --> I[Power BI Dashboard]
+⚡ Workflow Diagram
 
-
+<img width="6038" height="2138" alt="Blank diagram (3)" src="https://github.com/user-attachments/assets/017f16d8-9b9e-4f86-85a3-625fe95ddf3d" />
 
 
 
